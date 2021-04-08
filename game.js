@@ -159,9 +159,9 @@ var game = async () => {
         showPlayerProgress(answerArray);
         let guess = await getGuess().then();
         console.log(guess);
-        if(guess === null || !guess ){
+        if(guess === null){
             break;
-        }else if(guessed.includes(guess)){
+        }else if(!guess || guessed.includes(guess)){
             continue;
         }else{
             let correctGuesses = updateGameState(guess, word, answerArray);
