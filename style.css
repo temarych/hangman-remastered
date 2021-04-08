@@ -1,0 +1,283 @@
+body,
+#mask{
+    margin : 0;
+    padding : 0;
+
+    overflow : hidden;
+}
+#mask{
+    display : flex;
+    flex-direction : column;
+    justify-content : center;
+    align-items : center;
+
+    height : 100vh;
+}
+
+#mask > div:not(#background){
+    box-shadow : 0 0 20px rgb(240, 240, 240);
+    background-color : white;
+
+    border-radius : 40px;
+    border : 2px solid rgb(247, 247, 247);
+
+    margin : 10px;
+
+    z-index : 1;
+}
+
+#hangman{
+    padding : 20px;
+
+    z-index : 1;
+}
+
+#hangman > *{
+    margin : 8px;
+}
+
+#cvs{
+    border-radius : 30px;
+    border : 2px solid rgb(247, 247, 247);
+
+    box-shadow : 0 0 10px rgb(240, 240, 240);
+
+    width : 100px;
+    height : 100px;
+
+    margin-left : 8px;
+}
+
+#header{
+    display : flex;
+    justify-content : space-between;
+    align-items : center;
+}
+
+#hangman h2,
+#hangman p,
+input,
+#hidden_text{
+    font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#hangman h2{
+    margin : 2px;
+}
+#hangman p{
+    margin : 2px;
+}
+
+#description{
+    display : flex;
+    flex-direction : column;
+    align-items : flex-start;
+    justify-content: center;
+
+    margin-right : 8px;
+
+    font-size : 1.2em;
+}
+
+/* hashtags */
+
+#hashtags{
+    border-spacing : 10px;
+
+    margin : -8px;
+    margin-top : -2px;
+}
+#hashtags td{
+    background-color : black;
+    color : white;
+    border-radius : 40px;
+    font-weight : bold;
+    padding : 4px;
+    padding-left : 10px;
+    padding-right : 10px;
+}
+#hashtags td > p:before{
+    content : '# ';
+}
+
+/* input */
+
+#text{
+    border : none;
+    outline : none;
+    padding-left : 10px;
+    font-weight : bold;
+    font-size : 1.2em;
+    width : 220px;
+}
+#hidden_text{
+    font-size : 1em;
+    font-weight : bold;
+    visibility : hidden;
+    position : absolute;
+}
+#control{
+    border-spacing : 5px;
+    border-radius : 40px;
+
+    background-color : black;
+
+    margin-left : 7.5px;
+    padding : 2px;
+}
+#control td{
+    border-radius : 30px;
+    padding : 0;
+}
+#proceed,
+#cancel{
+    border-radius : 40px;
+    border : 0;
+
+    background-position : center;
+    background-repeat : no-repeat;
+    background-color : white;
+
+    width : 30px;
+    height : 30px;
+
+    vertical-align : middle;
+
+    padding : 0;
+    margin : 0;
+
+    outline : none;
+
+    transition : 0.3s;
+
+    cursor : pointer;
+}
+#proceed{
+    background-image : url('right-arrow.svg');
+    background-size : 65%;
+}
+#cancel{
+    background-image : url('delete.svg');
+    background-size : 50%;
+}
+#proceed:hover,
+#cancel:hover{
+    filter : invert(100%);
+}
+#input{
+    box-shadow : 0 0 20px rgb(240, 240, 240);
+    border-radius : 30px;
+    border : 2px solid rgb(247, 247, 247);
+
+    padding : 10px;
+    display : flex;
+    flex-direction : row;
+    align-items : center;
+    justify-content : space-between;
+}
+
+/* links */
+
+a{
+    color : black;
+    text-decoration : none;
+}
+a:before{
+    content : '__';
+    color : transparent;
+
+    background-image : url('link.svg');
+    background-repeat : no-repeat;
+    background-position : center;
+}
+
+/* background */
+
+#background{
+    width : 90vw;
+    height : 90vh;
+
+    background-image : url('hangman-logo.svg');
+    background-size : 100px;
+    background-position: center;
+    background-repeat : repeat;
+
+    filter : opacity(5%);
+    box-shadow : inset 0 0 100px 50px white;
+
+    z-index : 0;
+    position : absolute;
+}
+
+/* info */
+
+#info{
+    font-family : -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    
+    padding : 20px;
+    padding-top : 15px;
+    padding-bottom : 15px;
+}
+#info > div{
+    font-weight : bold;
+    font-size : 1.4em;
+
+    display : flex;
+    justify-content : center;
+    align-items : center;
+}
+#show-guessed > p{
+    border-radius : 40px;
+
+    font-size : 0.8em;
+
+    display : flex;
+    justify-content : center;
+    align-items : center;
+
+    margin : 2px;
+}
+.not-guessed{
+    border : 3px solid;
+
+    width : calc(1.6em - 6px);
+    height : calc(1.6em - 6px);
+}
+.guessed{
+    background-color : black;
+    color : white;
+
+    width : 1.6em;
+    height : 1.6em;
+}
+
+/*#show-score{
+    margin-top : 10px;
+}
+#show-score > div,
+#show-score p{
+    display : flex;
+    justify-content : center;
+    align-items : center;
+
+    margin : 0;
+}
+#show-score > div{
+    border : 3px solid;
+    border-radius : 40px;
+}
+#score{
+    background-color : black;
+    border-radius : 40px;
+
+    color : white;
+
+    padding : 0.2em;
+    padding-left : 0.5em;
+    padding-right : 0.5em;
+}
+#grow{
+    padding : 0.2em;
+    padding-left : 0.3em;
+    padding-right : 0.5em;
+}*/

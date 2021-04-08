@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HM Remastered</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="mask">
+            <div id="background"></div>
+            <div id="hangman">
+                <div id="header">
+                    <div id="description">
+                        <h2>Hangman</h2>
+                        <p>developed by <a href="https://www.instagram.com/urgyeev/">temar</a></p>
+                        <table id="hashtags"><td><p>jsbased</p></td><td><p>game</p></td></table>
+                    </div>
+                    <canvas id="cvs" width="100" height="100"></canvas>
+                </div>
+                <div id="input">
+                    <input type="text" id="text" placeholder="Start playing the game"><table id="control"><tr><td><input type="button" id="cancel"></td><td><input type="button" id="proceed"></td></tr></table>
+                </div>
+            </div>
+            <div id="info">
+                <div id="show-guessed"><p class="guessed">P</p> <p class="not-guessed">?</p> <p class="guessed">O</p> <p class="guessed">M</p> <p class="guessed">I</p> <p class="not-guessed">?</p> <p class="not-guessed">?</p></div>
+                <!--<div id="show-score"><div><p id="score">404</p><p id="grow">+1</p></div></div>-->
+            </div>
+        </div>
+        <div id="hidden_text">Please guess a letter</div>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+        <script src="words.json"></script>
+        <script src="game.js"></script>
+    </body>
+</html>
