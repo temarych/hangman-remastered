@@ -158,7 +158,6 @@ var game = async () => {
     while(remainingLetters > 0 && mistakes < 6){
         showPlayerProgress(answerArray);
         let guess = await getGuess().then();
-        console.log(guess);
         if(guess === null){
             break;
         }else if(!guess || guessed.includes(guess)){
