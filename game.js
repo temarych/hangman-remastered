@@ -128,7 +128,10 @@ var game = async () => {
         div.innerHTML = answerArray.join(' ');
     };
 
-    let getGuess = () => i.prompt('Please guess a letter');
+    let getGuess = () => {
+        let guess = (async () => await i.prompt('Please guess a letter'))().then()
+        return typeof guess !== 'string' || guess.length !== 1 ? false : guess.toLowerCase();
+    }
 
     let updateGameState = (guess, word, answerArray) => {
         let numberOfGuesses = 0;
@@ -154,10 +157,12 @@ var game = async () => {
 
     while(remainingLetters > 0 && mistakes < 6){
         showPlayerProgress(answerArray);
-        let guess = await getGuess();
+        let guess = getGuess();
         if(guess === null){
             break;
-        }else if(guess.length === 1 && !guessed.includes(guess)){
+        }else if(!guess || !guessed.includes(guess)){
+            continue;
+        }else{
             let correctGuesses = updateGameState(guess, word, answerArray);
             if(correctGuesses === 0) draw(34, mistakes++);
             remainingLetters -= correctGuesses;
