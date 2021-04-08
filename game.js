@@ -113,7 +113,9 @@ var game = async () => {
         cancel : document.getElementById('cancel')
     });
 
-    let words = await getWords('programming');
+    //let words = await getWords('programming');
+
+    let words = ['promise', 'pattern', 'webhook'];
 
     let pickWord = () => words[Math.floor(Math.random() * words.length)];
     let setupAnswerArray = word => '?'.repeat(word.length).split('');
@@ -130,7 +132,7 @@ var game = async () => {
 
     let getGuess = async () => {
         let guess = await i.prompt('Please guess a letter');
-        return typeof guess !== 'string' || guess.length !== 1 ? false : guess.toLowerCase();
+        return guess === null ? null : typeof guess !== 'string' || guess.length !== 1 ? false : guess.toLowerCase();
     }
 
     let updateGameState = (guess, word, answerArray) => {
