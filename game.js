@@ -113,7 +113,9 @@ var game = async () => {
         cancel : document.getElementById('cancel')
     });
 
-    let words = await getWords('programming');
+    //let words = await getWords('programming');
+
+    let words = ['neuk', 'promise', 'coding'];
 
     let pickWord = () => words[Math.floor(Math.random() * words.length)];
     let setupAnswerArray = word => '?'.repeat(word.length).split('');
@@ -128,8 +130,8 @@ var game = async () => {
         div.innerHTML = answerArray.join(' ');
     };
 
-    let getGuess = () => {
-        let guess = (async () => await i.prompt('Please guess a letter'))().then()
+    let getGuess = async () => {
+        let guess = await i.prompt('Please guess a letter');
         return typeof guess !== 'string' || guess.length !== 1 ? false : guess.toLowerCase();
     }
 
@@ -157,10 +159,11 @@ var game = async () => {
 
     while(remainingLetters > 0 && mistakes < 6){
         showPlayerProgress(answerArray);
-        let guess = getGuess();
-        if(guess === null){
+        let guess = await getGuess().then();
+        console.log(guess);
+        if(guess === null || !guess ){
             break;
-        }else if(!guess || !guessed.includes(guess)){
+        }else if(guessed.includes(guess)){
             continue;
         }else{
             let correctGuesses = updateGameState(guess, word, answerArray);
