@@ -113,10 +113,8 @@ var game = async () => {
         cancel : document.getElementById('cancel')
     });
 
-    //let words = await getWords('programming');
-
-    let words = ['promise', 'pattern', 'webhook'];
-
+    let words = await getWords('programming');
+    
     let pickWord = () => words[Math.floor(Math.random() * words.length)];
     let setupAnswerArray = word => '?'.repeat(word.length).split('');
 
